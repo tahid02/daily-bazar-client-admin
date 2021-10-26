@@ -22,12 +22,13 @@ const Home = () => {
   // }, []);
 
   // USING CUSTOM HOOK COMPONENT
-  const { data, error, isError, isLoading, isSuccess } = useAsync(
+  const { data, error, isLoading, isSuccess } = useAsync(
     productService.getProducts
   );
   console.log('product data', data, isLoading, error);
   return (
     <div>
+      {/* <Header /> */}
       <Banner />
       <Products
         isLoading={isLoading}

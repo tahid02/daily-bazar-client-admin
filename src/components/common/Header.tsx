@@ -90,6 +90,9 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link as={Link} to="/dashboard" href="#features">
+              {data?.role === 'admin' ? 'Dashboard' : 'Merchant zone'}{' '}
+            </Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
