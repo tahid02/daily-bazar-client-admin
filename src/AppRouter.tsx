@@ -1,6 +1,7 @@
 import Header from 'components/common/Header';
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import DefaultLayout from 'components/layout/DefaultLayout'
 const Home = lazy(() => import('./pages/Home/Home'));
 const Help = lazy(() => import('./pages/Help/Help'));
 const Login = lazy(() => import('./pages/login/Login'));
@@ -15,8 +16,12 @@ const AppRouter = () => {
     <div>
       <Suspense fallback={<p>loading.......</p>}>
         <Router>
-        
-          <Switch>
+         {/* { !location.pathname.includes('/dashboard') && <Header /> }  // we cant use locatiion here ,
+         so, to show navbar(header) conditionally , simply create a HOC (named DefaultLayout),write the extra thing(location) there
+         and send this switch component . Then use that HOC here , so we will have both location and switch in
+         this file */}
+         <DefaultLayout> 
+         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/help" component={Help} />
             <Route path="/product/:id" component={ProductDetail} />
@@ -26,6 +31,8 @@ const AppRouter = () => {
             <Route path="/404" component={Page404} />
             <Route path="/500" component={Page500} />
           </Switch>
+         </DefaultLayout>
+         
         </Router>
       </Suspense>
     </div>
