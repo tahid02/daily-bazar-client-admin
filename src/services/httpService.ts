@@ -19,7 +19,7 @@ instance.interceptors.request.use(
         // Authentication:"token from local storage by redux persistor"
         Authentication: JSON.parse(
           JSON.parse(localStorage.getItem('persist:root') || '').auth
-        )?.data?.token,
+        )?.data?.data?.token,
       },
     };
   },
@@ -34,7 +34,7 @@ const responseBody = (res: AxiosResponse) => {
   return res.data;
 };
 
-const get = (url: string) => {
+const get = (url: string): Promise<any> => {
   // console.log("url check",process.env.REACT_APP_API_BASE_URL)
   return instance.get(url).then(responseBody);
 };

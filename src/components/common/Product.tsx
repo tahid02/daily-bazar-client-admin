@@ -7,8 +7,8 @@ interface IProductProp {
 }
 const Product = ({ product }: IProductProp) => {
   const { name, image, _id } = product;
-  console.log('product id', _id);
-  console.log('imageURL', imageUrlParser(image));
+  // console.log('product id', _id);
+  // console.log('imageURL', imageUrlParser(image));
   return (
     <Col lg={3} md={4}>
       <Link to={`/product/${_id}`}>

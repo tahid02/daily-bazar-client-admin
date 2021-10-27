@@ -9,7 +9,7 @@ interface IProps {
 }
 // const Products = ({ products }: IProduct[]) => { we have to define the types of props object here as it is a props object
 const Products = ({ products, isLoading, isSuccess }: IProps) => {
-  console.log({ products });
+  // console.log({ products });
   return (
     <div>
       <Container>

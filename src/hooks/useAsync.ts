@@ -15,7 +15,7 @@ const useAsync = <T>(asyncFunction: () => Promise<T>) => {
     asyncFunction()
       .then((res) => {
         setData(res);
-        console.log('response data useAsync', res);
+        // console.log('response data useAsync', res);
         setStatus('success');
         setError(null);
       })

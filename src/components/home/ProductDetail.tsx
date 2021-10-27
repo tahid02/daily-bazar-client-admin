@@ -20,7 +20,7 @@ const ProductDetails = () => {
       .then((res) => res.json())
       .then((info) => setData(info.data));
   }, []);
-  console.log('product detail data', data);
+  // console.log('product detail data', data);
   const { name, image, description, price } = data;
 
   return (

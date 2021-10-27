@@ -25,7 +25,7 @@ const Home = () => {
   const { data, error, isLoading, isSuccess } = useAsync(
     productService.getProducts
   );
-  console.log('product data', data, isLoading, error);
+  // console.log('product data', data, isLoading, error);
   return (
     <div>
       {/* <Header /> */}
