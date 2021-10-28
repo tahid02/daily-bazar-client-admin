@@ -5,6 +5,7 @@ const MerchantDashboard = React.lazy(() =>
   import('./views/dashboard/MerchantDashboard')
 );
 const UserList = React.lazy(() => import('./views/userList/UserList'));
+const ProductList = React.lazy(() => import('./views/productList/ProductList'));
 
 const {
   auth: { data }, // destructured data from auth
@@ -35,6 +36,13 @@ const routes = [
     name: 'User List',
     component: UserList,
     role: ['admin'],
+  },
+  {
+    exact: true,
+    path: '/dashboard/products',
+    name: 'User List',
+    component: ProductList,
+    role: ['merchant'],
   },
 ];
 

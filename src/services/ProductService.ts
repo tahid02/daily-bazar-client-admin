@@ -1,3 +1,4 @@
+import { IProduct } from './../types';
 import request from 'services/httpService';
 
 class ProductService {
@@ -6,6 +7,11 @@ class ProductService {
   getProducts(): Promise<any> {
     // here instead of <any> , it should be <IProduct>
     return request.get('/product'); // https://fvaly.herokuapp.com/api/product this api is provided by programming hero
+  }
+
+  
+  getMerchantsProducts(): Promise<IProduct[]> {
+    return request.get('/merchant/products');
   }
 
   getProductByID(id: string): Promise<any> {
