@@ -1,32 +1,32 @@
 import React from 'react';
-import UserList from './views/dashboard/userList/UserList';
-
+import store from 'redux/store';
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
+const MerchantDashboard = React.lazy(() =>
+  import('./views/dashboard/MerchantDashboard')
+);
+const UserList = React.lazy(() => import('./views/userList/UserList'));
 
-// Base
+const {
+  auth: { data }, // destructured data from auth
+} = store.getState();
+const selectDashboard = () => {
+  switch (data?.role) {
+    case 'merchant':
+      return MerchantDashboard;
+    case 'admin':
+      return Dashboard;
+    default:
+      return null;
+  }
+};
 
 const routes = [
   // { exact: true, path: '/', name: 'Home' },
-  // {
-  //   exact: true,
-  //   path: '/dashboard',
-  //   name: 'Dashboard',
-  //   component: Dashboard,
-  //   role: ['admin', 'merchant'],
-  // },
-  // {
-  //   exact: true,
-  //   path: '/dashboard/users',
-  //   name: 'user list',
-  //   component: UserList,
-  //   role: ['admin'],
-  // },
-
   {
     exact: true,
     path: '/dashboard',
     name: 'Dashboard',
-    component: Dashboard,
+    component: selectDashboard(),
     role: ['admin', 'merchant'],
   },
   {
