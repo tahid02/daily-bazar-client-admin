@@ -48,7 +48,8 @@ const Header = () => {
         <Container>
           <div className="d-flex align-items-center gap-5 py-3">
             <Link to="/">
-              <img className="branding" src={logo} alt="Fvaly" />
+              {/* <img className="branding" src={logo} alt="Fvaly" /> */}
+              <span>Hello</span>
             </Link>
             <InputGroup>
               <FormControl

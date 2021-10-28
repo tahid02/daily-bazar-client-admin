@@ -23,9 +23,15 @@ import navigation from '../_nav';
 
 const AppSidebar = () => {
   const dispatch = useDispatch();
+
   const unfoldable = useSelector((state) => state.sidebarUnfoldable);
   const sidebarShow = useSelector((state) => state.sidebarShow);
-
+  const { data } = useSelector((state) => state.auth);
+  console.log('data of auth', data);
+  const filteredNav = navigation.filter((nav) =>
+    nav.role.includes(data?.data?.role)
+  );
+  console.log({ filteredNav });
   return (
     <CSidebar
       position="fixed"
@@ -41,7 +47,7 @@ const AppSidebar = () => {
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
-          <AppSidebarNav items={navigation} />
+          <AppSidebarNav items={filteredNav} />
         </SimpleBar>
       </CSidebarNav>
       <CSidebarToggler
