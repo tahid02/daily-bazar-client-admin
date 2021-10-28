@@ -6,13 +6,35 @@ const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 // Base
 
 const routes = [
-  { exact: true, path: '/', name: 'Home' },
-  { exact: true, path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  // { exact: true, path: '/', name: 'Home' },
+  // {
+  //   exact: true,
+  //   path: '/dashboard',
+  //   name: 'Dashboard',
+  //   component: Dashboard,
+  //   role: ['admin', 'merchant'],
+  // },
+  // {
+  //   exact: true,
+  //   path: '/dashboard/users',
+  //   name: 'user list',
+  //   component: UserList,
+  //   role: ['admin'],
+  // },
+
+  {
+    exact: true,
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
+    role: ['admin', 'merchant'],
+  },
   {
     exact: true,
     path: '/dashboard/users',
-    name: 'user list',
+    name: 'User List',
     component: UserList,
+    role: ['admin'],
   },
 ];
 
